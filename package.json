@@ -1,0 +1,31 @@
+{
+  "name": "internet-monitor",
+  "version": "0.0.0",
+  "private": false,
+  "scripts": {
+    "start": "cross-env ENV=development concurrently --prefix \"[{name}]\" --names \"server,client\" \"npm run server\" \"npm run client\"",
+    "server": "PORT=4000 nodemon --ignore client/ ./bin/www",
+    "client": "cross-env PORT=4001 node ./scripts/start-client",
+    "build": "node ./scripts/build-client"
+  },
+  "dependencies": {
+    "co": "^4.6.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "jade": "~1.11.0",
+    "mongodb": "^3.1.6",
+    "mongoose": "^5.3.1",
+    "morgan": "~1.9.0",
+    "node-cron": "^2.0.1",
+    "nodemon": "^1.18.4",
+    "ping": "^0.2.2",
+    "round-to": "^3.0.0",
+    "speedtest-net": "^1.4.3"
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.1",
+    "cross-env": "^5.2.0"
+  }
+}
